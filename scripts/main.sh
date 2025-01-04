@@ -31,12 +31,14 @@ cp -i /etc/kubernetes/admin.conf $config_path/config
 touch $config_path/join.sh
 chmod +x $config_path/join.sh
 
-kubeadm token create --print-join-command > $config_path/join.sh
+kubeadm token create --print-join-command >$config_path/join.sh
 
 # Install Flannel network plugin
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
-sudo -i -u vagrant bash << EOF
+kubectl create -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel-rbac.yml
+
+sudo -i -u vagrant bash <<EOF
 whoami
 mkdir -p /home/vagrant/.kube
 sudo cp -i $config_path/config /home/vagrant/.kube/
