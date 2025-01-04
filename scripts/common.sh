@@ -60,7 +60,7 @@ sudo apt-get update -y
 sudo apt-get install -y cri-o
 
 sudo systemctl daemon-reload
-sudo systemctl enable cri-o --now
+sudo systemctl enable crio --now
 sudo systemctl start crio.service
 
 echo "CRI runtime installed successfully"
