@@ -57,7 +57,7 @@ Vagrant.configure("2") do |config|
         "POD_CIDR" => settings["network"]["pod_cidr"],
         "SERVICE_CIDR" => settings["network"]["service_cidr"]
       },
-      path: "scripts/master.sh"
+      path: "scripts/main.sh"
   end
 
   (1..NUM_WORKER_NODES).each do |i|
